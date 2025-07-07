@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/log">Login</a></li>
+            <li><a href=".">Report</a></li>
+            <li><a href=".">Help</a></li>
+            <li><a href=".">About</a></li>
+
+        </ul>
+    </nav>
+    <div class="main-container">
+
+        <div class="data-table">
+            <h2>{{ title }} Table</h2>
+            {% if data %}
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Value</th>
+                            <th>Timestamp</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in data %}
+                        <tr>
+                            <td>{{ row[0] }}</td>
+                            <td>{{ row[1] }}</td>
+                            <td>{{ row[2] }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+            <p>No data available.</p>
+            {% endif %}
+        </div>
+
+        <div class="graph-container">
+            <h2>{{ title }} Graph</h2>
+            <img src="{{ url_for('static', filename='ldr1_graph.png') }}" alt="Graph">
+        </div>
+    </div>
+</body>
+
+</html>

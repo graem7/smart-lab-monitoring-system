@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+
+  <body>
+    <div class="body2" id="log">
+      <div class="centralize">
+        <form action="" method="post">
+          <div class="log">
+            <h2>Login</h2>
+            <br /><br />
+            <div class="contr">
+              <select name="username" required>
+                <option style="display: none" value="">Select Profile</option>
+                <option value="admin">ADMIN</option>
+                <option value="temp">Temperature Monitor</option>
+                <option value="humidity">Humidity Monitor</option>
+                <option value="pir">Security Monitor</option>
+                <option value="ldr1">Light Sensor 1</option>
+                <option value="ldr2">Light Monitor 2</option>
+              </select>
+
+              <input
+                type="password"
+                name="password"
+                placeholder="Password"
+                required
+              />
+              <br />
+            </div>
+            <div class="contr">
+              <input
+                style="text-align: center"
+                id="subtn"
+                type="submit"
+                value="Login"
+              />
+            </div>
+
+            {% if message %}
+            <p style="color: red; text-align: center">{{ message }}</p>
+            {% endif %}
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
